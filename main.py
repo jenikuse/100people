@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from flask import Flask, render_template
+
 from urllib import urlopen
 import json
 
-def main():
+app = Flask(__name__)
 
+
+def main():
     url = 'https://randomuser.me/api/?results=100'
 
     def get_people(url):  # get data from url and parse
@@ -16,19 +20,15 @@ def main():
 
         return people  # [0,1, .., 99] -> dictionary
 
-
     class Person:
-
 
         def __init__(self, person):
             self.person = person
 
-
-        #def __repr__(self):
+        # def __repr__(self):
         #   return self.name
 
         def set_person(self):
-
             self.name = self.person['name']['first'] + " " + self.person['name']['last']  # fullname
             self.gender = self.person['gender']
             self.email = self.person['email']
@@ -46,21 +46,19 @@ def main():
     return card_list
 
 
-
-card = main() #card[0].name card[0].gender etc
-
+users = main()  # card[0].name card[0].gender etc
 
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html', users)
 
-
-
-# from flask import Flask, redirect, url_for, request
 
 '''app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Hello World!"
-    #return r
+
 if __name__ == "__main__":
     app.run()
 '''
