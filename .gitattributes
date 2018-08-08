@@ -1,0 +1,2 @@
+special-vendored-path/* linguist-vendored
+jcript.js linguist-vendored=false
