@@ -1,49 +1,53 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 from urllib import urlopen
 import json
 
-url = 'https://randomuser.me/api/?results=100'
+def main():
 
-def get_people(url):  # get data from url and parse
+    url = 'https://randomuser.me/api/?results=100'
 
-    response = urlopen(url)
-    data = json.loads(response.read())
-    people = data['results']
+    def get_people(url):  # get data from url and parse
 
-    return people  # [0,1, .., 99] -> dictionary
+        response = urlopen(url)
+        data = json.loads(response.read())
+        people = data['results']
 
-people = get_people(url)
-
-class Person:
+        return people  # [0,1, .., 99] -> dictionary
 
 
-    def __init__(self, person):
-        self.person = person
+    class Person:
 
 
-    def set_person(self, person):
-        person_dict = {}
-        person_dict['name'] = person['name']['first'] + " " + person['name']['last'] #fullname
-        person_dict['gender'] = person['gender']
-        person_dict['email'] = person['email']
-        person_dict['phone'] = person['phone']
-        person_dict['medium'] = person['picture']['medium']
-        #return person_dict
-
-        print(person_dict)
-
-instancelist = []
-
-for i in range(10):
-     card = Person(people[i])
-     card.set_person(people[i])
-     print (card)
-
-#print instancelist
+        def __init__(self, person):
+            self.person = person
 
 
+        #def __repr__(self):
+        #   return self.name
 
+        def set_person(self):
+
+            self.name = self.person['name']['first'] + " " + self.person['name']['last']  # fullname
+            self.gender = self.person['gender']
+            self.email = self.person['email']
+            self.phone = self.person['phone']
+            self.medium = self.person['picture']['medium']
+
+    people = get_people(url)
+    card_list = []
+
+    for i in range(100):
+        card = Person(people[i])
+        card.set_person()
+        card_list.append(card)
+
+    return card_list
+
+
+
+card = main() #card[0].name card[0].gender etc
 
 
 
