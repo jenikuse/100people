@@ -51,7 +51,7 @@ users = main()  # card[0].name card[0].gender etc
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', users)
+    return render_template('index.html', users = users)
 
 
 '''app = Flask(__name__)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>100 people</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     
 </head>
@@ -12,10 +12,11 @@
     <main>
         <section class="cards" id="cards">
             {% for user in users %}
+
             <div class="card-item">
                 <div class="info-header">
                     <img src="user.medium">
-                    <h1>{{ user.name }}</h1>
+                    <h1>{{ users.name }}</h1>
                 </div>
                 <table>
                     <tr>
@@ -55,6 +56,9 @@
             </form>
         </section>
     </main>
+    <script>
+        console.log(users);
+    </script>
     <!--<script src="script.js"></script>-->
 </body>
 </html>
