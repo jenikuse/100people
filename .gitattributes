@@ -1,3 +1,3 @@
-*.py linguist-vendored
+main.py linguist-vendored
 script.js linguist-vendored=false
-static/* linguist-vendored
+static/* linguist-vendored=false
