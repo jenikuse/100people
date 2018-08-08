@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template
 
-from urllib import urlopen
+from urllib import request
 import json
 
 app = Flask(__name__)
@@ -14,7 +14,7 @@ def main():
 
     def get_people(url):  # get data from url and parse
 
-        response = urlopen(url)
+        response = request.urlopen(url)
         data = json.loads(response.read())
         people = data['results']
 
