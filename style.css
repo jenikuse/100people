@@ -85,3 +85,18 @@ button {
     margin: 20px auto;
     background: #019ffdba;
 }
+
+input[type="text"]:focus,
+input[type="text"]:hover {
+    border-bottom: 1px solid #019ffdba;
+    outline: none;
+}
+
+button:hover,
+button:active {
+    cursor: pointer; /* FF3.6-15 */
+    outline: none;
+    background: -webkit-linear-gradient(#019ffd 0%, #2989d8 54%, #207cca 92%, #207cca 99%, #72b3e5 100%);
+    background: -o-linear-gradient(#019ffd 0%, #2989d8 54%, #207cca 92%, #207cca 99%, #72b3e5 100%);
+    background: linear-gradient(#019ffd 0%, #2989d8 54%, #207cca 92%, #207cca 99%, #72b3e5 100%); /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
